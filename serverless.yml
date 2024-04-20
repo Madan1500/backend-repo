@@ -50,6 +50,16 @@ functions:
       - http:
           path: notes
           method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
           authorizer: aws_iam
   get:
 # Defines an HTTP API endpoint that calls the main function in get.js
@@ -60,6 +70,16 @@ functions:
       - http:
           path: notes/{id}
           method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
           authorizer: aws_iam
   list:
 # Defines an HTTP API endpoint that calls the main function in list.js
@@ -70,6 +90,16 @@ functions:
       - http:
           path: notes
           method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
           authorizer: aws_iam
   update:
 # Defines an HTTP API endpoint that calls the main function in update.js
@@ -80,6 +110,16 @@ functions:
       - http:
           path: notes/{id}
           method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
           authorizer: aws_iam
   delete:
 # Defines an HTTP API endpoint that calls the main function in delete.js
@@ -90,4 +130,20 @@ functions:
       - http:
           path: notes/{id}
           method: delete
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
           authorizer: aws_iam
+resources:
+# API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
+
+
+
