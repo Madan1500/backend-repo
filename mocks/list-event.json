@@ -1,1 +1,7 @@
-{}
+{
+    "requestContext": {
+        "identity": {
+            "cognitoIdentityId": "us-east-1:a588521e-d6d2-41ee-8800-5d75dc301f7a"
+        }
+    }
+}
