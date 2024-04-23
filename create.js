@@ -19,11 +19,21 @@ export async function main(event, context) {
         await dynamoDb.put(params).promise();
         return {
             statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*', // for CORS
+                'Access-Control-Allow-Credentials': true, // for cookies, authorization headers, etc.
+                'Content-Type': 'application/json', // for your body-parser
+            },
             body: JSON.stringify(params.Item),
         };
     } catch (e) {
         return {
             statusCode: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*', // for CORS
+                'Access-Control-Allow-Credentials': true, // for cookies, authorization headers, etc.
+                'Content-Type': 'application/json', // for your body-parser
+            },
             body: JSON.stringify({ error: e.message }),
         };
     }
